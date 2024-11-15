@@ -338,7 +338,12 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
   switch (other_keycode) {
     case QK_MOD_TAP ... QK_MOD_TAP_MAX:
     case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
-      other_keycode &= 0xff;  // Get base keycode.
+       // Exclude specific layer keys from Achordion logic
+       if ((other_keycode & 0xff) == KC_SPACE || (other_keycode & 0xff) == KC_ESC) {
+           return true; // Skip layer-switching keys like Space/Esc
+       }
+       other_keycode &= 0xff; // Get base keycode
+       break;
   }
 
   // Allow same-hand holds with non-alpha keys.
