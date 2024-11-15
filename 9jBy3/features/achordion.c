@@ -358,6 +358,16 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
 
 // By default, the timeout is 1000 ms for all keys.
 __attribute__((weak)) uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
+   // Handle LAYER_TAP keys
+    if (tap_hold_keycode >= QK_LAYER_TAP && tap_hold_keycode <= QK_LAYER_TAP_MAX) {
+        uint16_t base_keycode = tap_hold_keycode & 0xFF;  // Extract base keycode
+
+        // Custom timeouts for specific keys
+        if (base_keycode == KC_SPACE || base_keycode == KC_ESC) {
+            return 0;  // Disable timeout for Space/Esc layer-tap keys
+        }
+    }
+
   return 1000;
 }
 
