@@ -335,21 +335,27 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
                                            keyrecord_t* tap_hold_record,
                                            uint16_t other_keycode,
                                            keyrecord_t* other_record) {
-  switch (other_keycode) {
-    case QK_MOD_TAP ... QK_MOD_TAP_MAX:
-    case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
-       // Exclude specific layer keys from Achordion logic
-       if ((other_keycode & 0xff) == KC_SPACE || (other_keycode & 0xff) == KC_ESC) {
-           return true; // Skip layer-switching keys like Space/Esc
-       }
-       other_keycode &= 0xff; // Get base keycode
-       break;
-  }
+    uint16_t other_keycode = other_record->event.key.code;
 
-  // Allow same-hand holds with non-alpha keys.
-  if (other_keycode > KC_Z) { return true; }
+    // Check if the other key is a MOD_TAP or LAYER_TAP key
+    if (other_keycode >= QK_MOD_TAP && other_keycode <= QK_MOD_TAP_MAX) {
+        other_keycode &= 0xFF;  // Extract base keycode for MOD_TAP
+    } else if (other_keycode >= QK_LAYER_TAP && other_keycode <= QK_LAYER_TAP_MAX) {
+        other_keycode &= 0xFF;  // Extract base keycode for LAYER_TAP
 
-  return achordion_opposite_hands(tap_hold_record, other_record);
+        // Directly allow LT keys with certain base keycodes
+        if (other_keycode == KC_SPACE || other_keycode == KC_ESC) {
+            return true;  // Bypass Achordion for Space/Esc layer-tap keys
+        }
+    }
+
+    // Allow same-hand holds for non-alphabetic keys
+    if (other_keycode > KC_Z) {
+        return true;
+    }
+
+    // Fallback to default Achordion logic for opposite-hand checks
+    return achordion_opposite_hands(tap_hold_record, other_record);
 }
 
 // By default, the timeout is 1000 ms for all keys.
