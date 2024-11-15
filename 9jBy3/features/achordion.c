@@ -335,8 +335,6 @@ __attribute__((weak)) bool achordion_chord(uint16_t tap_hold_keycode,
                                            keyrecord_t* tap_hold_record,
                                            uint16_t other_keycode,
                                            keyrecord_t* other_record) {
-    uint16_t other_keycode = other_record->event.key.code;
-
     // Check if the other key is a MOD_TAP or LAYER_TAP key
     if (other_keycode >= QK_MOD_TAP && other_keycode <= QK_MOD_TAP_MAX) {
         other_keycode &= 0xFF;  // Extract base keycode for MOD_TAP
