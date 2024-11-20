@@ -88,8 +88,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return g_tapping_term -50;
         case KC_V:
             return g_tapping_term -15;
-        case LT(2,KC_SPACE):
-            return 0;
         case MT(MOD_RSFT, KC_J):
             return g_tapping_term -50;
         case KC_M:
