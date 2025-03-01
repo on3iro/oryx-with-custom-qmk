@@ -79,7 +79,7 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
         'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R', 
         '*', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R', 
         'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R', 
-                            '*', '*',  '*', '*',
+                            '*', '*',  '*', '*'
     );
 
 const uint16_t PROGMEM combo0[] = { KC_U, KC_I, COMBO_END};
