@@ -3,6 +3,11 @@
   See config.h options at https://docs.qmk.fm/#/config_options?id=the-configh-file
 */
 
+#undef TAPPING_TERM
+#define TAPPING_TERM 250
+
+#define PERMISSIVE_HOLD
+
 #undef RGB_MATRIX_TIMEOUT
 #define RGB_MATRIX_TIMEOUT 600000
 
@@ -19,7 +24,7 @@
 #undef MOUSEKEY_WHEEL_MAX_SPEED
 #define MOUSEKEY_WHEEL_MAX_SPEED 3
 
-#define SERIAL_NUMBER "9jBy3/YAZow"
+#define SERIAL_NUMBER "9jBy3/Jaa977"
 #define LAYER_STATE_16BIT
 #define COMBO_COUNT 1
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
