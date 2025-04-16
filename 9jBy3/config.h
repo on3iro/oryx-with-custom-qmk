@@ -17,7 +17,7 @@
 #undef MOUSEKEY_WHEEL_MAX_SPEED
 #define MOUSEKEY_WHEEL_MAX_SPEED 3
 
-#define SERIAL_NUMBER "9jBy3/x9bvgY"
+#define SERIAL_NUMBER "9jBy3/lbAaEq"
 #define LAYER_STATE_16BIT
 #define COMBO_COUNT 2
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
