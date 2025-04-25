@@ -1,4 +1,7 @@
 #define CHORDAL_HOLD
+#undef TAPPING_TERM
+#define TAPPING_TERM 230
+
 #define PERMISSIVE_HOLD
 
 #undef RGB_MATRIX_TIMEOUT
@@ -17,7 +20,7 @@
 #undef MOUSEKEY_WHEEL_MAX_SPEED
 #define MOUSEKEY_WHEEL_MAX_SPEED 3
 
-#define SERIAL_NUMBER "9jBy3/lbAaEq"
+#define SERIAL_NUMBER "9jBy3/m5zz3d"
 #define LAYER_STATE_16BIT
 #define COMBO_COUNT 2
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
