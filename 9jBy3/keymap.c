@@ -13,13 +13,14 @@ enum custom_keycodes {
 
 
 
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
     OSL(6),         KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_HYPR,        
     KC_MEH,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_QUOTE,       
-    LT(1,KC_ESCAPE),MT(MOD_LCTL, KC_A),MT(MOD_LALT, KC_S),MT(MOD_LGUI, KC_D),MT(MOD_LSFT, KC_F),KC_G,                                           KC_H,           MT(MOD_RSFT, KC_J),MT(MOD_RGUI, KC_K),MT(MOD_RALT, KC_L),MT(MOD_RCTL, KC_SCLN),KC_ENTER,       
+    LT(1, KC_ESCAPE),MT(MOD_LCTL, KC_A),MT(MOD_LALT, KC_S),MT(MOD_LGUI, KC_D),MT(MOD_LSFT, KC_F),KC_G,                                           KC_H,           MT(MOD_RSFT, KC_J),MT(MOD_RGUI, KC_K),MT(MOD_RALT, KC_L),MT(MOD_RCTL, KC_SCLN),KC_ENTER,       
     KC_NO,          KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_NO,          
-                                                    LT(2,KC_SPACE), MO(4),                                          MO(4),          MO(3)
+                                                    LT(2, KC_SPACE),MO(4),                                          MO(4),          MO(3)
   ),
   [1] = LAYOUT_voyager(
     RGB_TOG,        RGB_VAD,        RGB_VAI,        KC_BRIGHTNESS_DOWN,KC_BRIGHTNESS_UP,MAC_LOCK,                                       KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
@@ -73,22 +74,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 const uint16_t PROGMEM combo0[] = { KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM combo1[] = { KC_I, KC_O, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, KC_TAB),
-    COMBO(combo1, KC_QUOTE),
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(1,KC_ESCAPE):
+        case LT(1, KC_ESCAPE):
             return g_tapping_term -50;
         case MT(MOD_LSFT, KC_F):
             return g_tapping_term -50;
         case KC_V:
             return g_tapping_term -45;
-        case LT(2,KC_SPACE):
+        case LT(2, KC_SPACE):
             return g_tapping_term -20;
         case MT(MOD_RSFT, KC_J):
             return g_tapping_term -50;
@@ -108,7 +107,7 @@ void keyboard_post_init_user(void) {
 }
 
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
-    [0] = { {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218} },
+    [0] = { {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {0,0,0}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218}, {88,239,218} },
 
     [1] = { {243,252,255}, {233,248,247}, {233,248,247}, {204,232,247}, {204,232,247}, {0,232,247}, {0,0,0}, {0,0,0}, {204,232,247}, {204,232,247}, {204,232,247}, {0,232,247}, {0,0,0}, {0,0,0}, {204,232,247}, {204,232,247}, {204,232,247}, {0,0,0}, {0,0,0}, {125,255,247}, {125,255,247}, {125,255,247}, {125,255,247}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {233,248,247}, {233,248,247}, {233,248,247}, {233,248,247}, {0,0,0}, {233,248,247}, {233,248,247}, {233,248,247}, {233,248,247}, {233,248,247}, {0,0,0}, {233,248,247}, {0,0,0}, {125,255,247}, {125,255,247}, {125,255,247}, {125,255,247}, {233,248,247}, {0,0,0}, {0,0,0} },
 
@@ -181,6 +180,7 @@ bool rgb_matrix_indicators_user(void) {
   return true;
 }
 
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case ST_MACRO_0:
@@ -206,6 +206,5 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 }
-
 
 
