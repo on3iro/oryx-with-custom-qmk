@@ -1,4 +1,4 @@
-#define FLOW_TAP_TERM 100
+#define FLOW_TAP_TERM 75
 #define CHORDAL_HOLD
 #undef TAPPING_TERM
 #define TAPPING_TERM 230
@@ -21,7 +21,7 @@
 #undef MOUSEKEY_WHEEL_MAX_SPEED
 #define MOUSEKEY_WHEEL_MAX_SPEED 3
 
-#define SERIAL_NUMBER "9jBy3/pjbGVR"
+#define SERIAL_NUMBER "9jBy3/rbDKL9"
 #define LAYER_STATE_16BIT
 #define COMBO_COUNT 1
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
